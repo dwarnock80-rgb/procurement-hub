@@ -47,6 +47,13 @@ export default async function ProcurementPage({
               Procurement ID
             </dt>
             <dd className="mt-1">{procurement.id}</dd>
+
+            <Link
+  href={`/procurements/${procurement.id}/edit`}
+  className="inline-block rounded-md bg-black px-4 py-2 text-white"
+>
+  Edit procurement
+</Link>
           </div>
         </dl>
       </div>
