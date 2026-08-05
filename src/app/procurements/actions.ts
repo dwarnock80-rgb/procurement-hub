@@ -14,11 +14,21 @@ export async function createProcurement(formData: FormData) {
 
   const supabase = await createClient();
 
+  const {
+    data: { user },
+    error: userError,
+  } = await supabase.auth.getUser();
+
+  if (userError || !user) {
+    throw new Error("You must be signed in to create a procurement.");
+  }
+
   const { data, error } = await supabase
     .from("procurements")
     .insert({
       title,
       status,
+      user_id: user.id,
     })
     .select("id")
     .single();
