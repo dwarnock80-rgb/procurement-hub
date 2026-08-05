@@ -12,6 +12,13 @@ export default async function Home() {
   return (
     <main className="mx-auto max-w-4xl p-8">
       <h1 className="mb-8 text-3xl font-bold">Procurement Hub</h1>
+      
+      <Link
+  href="/procurements/new"
+  className="inline-block rounded-md bg-black px-4 py-2 text-white"
+>
+  New procurement
+</Link>
 
       {error && (
         <p className="rounded border border-red-300 bg-red-50 p-4 text-red-700">
